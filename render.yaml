@@ -1,0 +1,38 @@
+services:
+  - type: web
+    name: jobjoint-api
+    runtime: node
+    plan: starter
+    buildCommand: npm ci && npm run build --workspace backend
+    startCommand: npm run start --workspace backend
+    healthCheckPath: /api/health
+    disk:
+      name: jobjoint-uploads
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_REFRESH_SECRET
+        generateValue: true
+      - key: FRONTEND_URL
+        value: https://jobjoint-site.onrender.com
+      - key: UPLOADS_DIR
+        value: /var/data/uploads
+
+  - type: web
+    name: jobjoint-site
+    runtime: static
+    buildCommand: npm ci && npm run build --workspace frontend
+    staticPublishPath: ./frontend/dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://jobjoint-api.onrender.com
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
