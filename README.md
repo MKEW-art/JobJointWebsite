@@ -37,19 +37,21 @@ notepad backend/.env
 
 In `backend/.env`, set `MONGODB_URI` to your MongoDB connection string and replace `JWT_SECRET` and `JWT_REFRESH_SECRET` with different random values of at least 32 characters. Save the file. Start MongoDB if it is local.
 
-Open two PowerShell windows in the project folder. Run this in the first window to start the API:
-
-```powershell
-npm.cmd run dev:api
-```
-
-Run this in the second window to start the website:
+Start both the API and website together from the project folder:
 
 ```powershell
 npm.cmd run dev
 ```
 
-Open the frontend URL printed by Vite, usually `http://localhost:5173`. During development, Vite forwards `/api` and `/uploads` requests to the API at port 4000, so the local website also works if Vite chooses a different port. The API health check is `http://localhost:4000/api/health`.
+Wait until the API logs `JobJoint API listening` and Vite prints its local URL. Open the Vite URL, usually `http://localhost:5173`. During development, Vite forwards `/api` and `/uploads` requests to the API at port 4000, so the local website also works if Vite chooses a different port. The API health check is `http://localhost:4000/api/health`. Stop both services with `Ctrl+C`.
+
+To run the API alone in a separate terminal, use:
+
+```powershell
+npm.cmd run dev:api
+```
+
+To run only the frontend demo without the API, use `npm.cmd run dev:web`.
 
 Optional demo data: before starting the API, run `npm.cmd run seed --workspace backend` from a PowerShell window at the project root. This creates demo customers and professionals in the configured database. The default password is `JobJointDemo2026!`; set `DEMO_PASSWORD` in `backend/.env` to choose another. The seed command replaces existing seeded demo accounts.
 

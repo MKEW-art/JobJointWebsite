@@ -5,3 +5,31 @@ dist/
 !.env.example
 *.tsbuildinfo
 backend/uploads/
+
+# Local credentials and private keys
+secrets/
+*.pem
+*.key
+*.p12
+*.pfx
+*service-account*.json
+
+# Local databases, logs, caches, and test output
+*.db
+*.sqlite
+*.sqlite3
+*.log
+coverage/
+.cache/
+
+# Large exports and recordings (share recordings by link when possible)
+*.zip
+*.7z
+*.rar
+*.mp4
+*.mov
+*.mkv
+
+# Operating system files
+.DS_Store
+Thumbs.db

@@ -3,5 +3,5 @@
   "version": "1.0.0",
   "private": true,
   "workspaces": ["frontend", "backend"],
-  "scripts": { "dev": "npm run dev --workspace frontend", "dev:api": "npm run dev --workspace backend", "build": "npm run build --workspace frontend && npm run build --workspace backend" }
+  "scripts": { "dev": "node scripts/dev.mjs", "dev:web": "npm run dev --workspace frontend", "dev:api": "npm run dev --workspace backend", "build": "npm run build --workspace frontend && npm run build --workspace backend" }
 }
