@@ -87,9 +87,3 @@ https://drive.google.com/file/d/1RQybfgaof8Q08v8AAAMgbSB4v8rr4hNR/view?usp=drive
 - Add customer reviews and ratings so customers can share feedback after completed work.
 - Add in-app messaging and notifications to help customers and professionals coordinate requests.
 - Configure Google sign-in and deploy managed photo storage for a production release.
-
-
-
-
-
-
